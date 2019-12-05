@@ -1,0 +1,55 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0/pps21";
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [ 0 0 0 1 0 0 0 ];
+
+internalField   uniform 373.15;
+
+boundaryField
+{
+    front
+    {
+        type            wedge;
+    }
+    back
+    {
+        type            wedge;
+    }
+    pps21_to_pps20
+    {
+        type            calculated;
+        value           373.15;  // Assume this is a guess?
+    }
+    pps21_to_adh17
+    {
+        type            calculated;
+        value           373.15;  // Assume this is a guess?
+    }
+    pps21_to_ppf25
+    {
+        type            calculated;
+        value           373.15;  // Assume this is a guess?
+    }
+    pps21_to_pps22
+    {
+        type            calculated;
+        value           373.15;  // Assume this is a guess?
+    }
+}
+
+
+// ************************************************************************* //
