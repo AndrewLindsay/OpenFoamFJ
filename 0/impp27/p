@@ -10,14 +10,13 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "0/adh16";
-    object      T;
+    object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [ 0 0 0 1 0 0 0 ];
+dimensions      [1 -1 -2 0 0 0 0];
 
-internalField   uniform 373.15;
+internalField   uniform 1e5;
 
 boundaryField
 {
@@ -29,27 +28,26 @@ boundaryField
     {
         type            wedge;
     }
-    wedgeleft
+    wedgeright
     {
         type            zeroGradient;
-        value           calculated;
+        value           1e5;
     }
-    adh16_to_fbe12
+    impp27_to_impp31
     {
         type            calculated;
-        value           373.15;  // Assume this is a guess?
+        value           uniform 1e5;
     }
-    adh16_to_adh17
+    impp27_to_impp23
     {
         type            calculated;
-        value           373.15;  // Assume this is a guess?
+        value           uniform 1e5;
     }
-    adh16_to_pps20
+    impp27_to_impp26
     {
         type            calculated;
-        value           373.15;  // Assume this is a guess?
+        value           uniform 1e5;
     }
 }
-
 
 // ************************************************************************* //
