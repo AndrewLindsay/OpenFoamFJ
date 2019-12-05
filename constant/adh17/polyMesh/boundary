@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1906                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/adh17/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+6
+(
+    front
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2500;
+        startFace       4900;
+    }
+    back
+    {
+        type            wedge;
+        inGroups        1(wedge);
+        nFaces          2500;
+        startFace       7400;
+    }
+    adh17_to_adh18
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       9900;
+        sampleMode      nearestPatchFace;
+        sampleRegion    adh18;
+        samplePatch     adh18_to_adh17;
+    }
+    adh17_to_pps21
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       9950;
+        sampleMode      nearestPatchFace;
+        sampleRegion    pps21;
+        samplePatch     pps21_to_adh17;
+    }
+    adh17_to_adh16
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       10000;
+        sampleMode      nearestPatchFace;
+        sampleRegion    adh16;
+        samplePatch     adh16_to_adh17;
+    }
+    adh17_to_fbe13
+    {
+        type            mappedWall;
+        inGroups        1(wall);
+        nFaces          50;
+        startFace       10050;
+        sampleMode      nearestPatchFace;
+        sampleRegion    fbe13;
+        samplePatch     fbe13_to_adh17;
+    }
+)
+
+// ************************************************************************* //
